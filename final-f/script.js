@@ -1,19 +1,18 @@
-1st animation
-const button = document.getElementById("myButton");
-const isRed = false;
-
-button.addEventListener("click", () => {
-  if (isRed) {
-    button.style.backgroundColor = "blue";
-    isRed = false;
-  } else {
-    button.style.backgroundColor = "red";
-    isRed = true;
-  }
+ // # 1  Scrolling animation
+ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+                
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+    target.scrollIntoView({
+     behavior: 'smooth'
+     });
+}
+});
 });
 
-
-//fade in
+//  #2   fade in
 const element = document.querySelector('.main');
 element.style.opacity = 0;
 
@@ -28,11 +27,9 @@ const fadeIn = () => {
     }
   }, 100);
 };
-
 fadeIn();
 
-
-//slide in 
+// #3  slide in 
 const slideIn = () => {
   const element = document.querySelector('.main-info');
   const startingPosition = -1000;
@@ -50,7 +47,7 @@ const slideIn = () => {
 
 slideIn();
 
-//scale animation
+// #4   scale animation
 const scaleAnimation = () => {
   const element = document.querySelector('.main-second');
   let scale = 0;
@@ -68,42 +65,8 @@ const scaleAnimation = () => {
 scaleAnimation();
 
 
-//rotate animation
 
-const rotateAnimation = () => {
-  const element = document.querySelector('.main-third');
-  let rotation = 0;
-
-  const interval = setInterval(() => {
-    if (rotation < 360) {
-      rotation += 5;
-      element.style.transform = `rotate(${rotation}deg)`;
-    } else {
-      clearInterval(interval);
-    }
-  }, 20);
-};
-
-rotateAnimation();
-
-
-
-//color change animation
-const colorChange = () => {
-  const element = document.querySelector('.main-first');
-  const colors = ['red', 'green', 'blue'];
-  let colorIndex = 0;
-
-  const interval = setInterval(() => {
-    element.style.color = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-  }, 1000);
-};
-
-colorChange();
-
-
-//bounsing animation
+//   #5   bounsing animation
 const bounceAnimation = () => {
   const element = document.querySelector('.main-info');
   let position = 0;
@@ -118,11 +81,10 @@ const bounceAnimation = () => {
     }
   }, 100);
 };
-
 bounceAnimation();
 
 
-//type writer animation
+//  #6   type writer animation
 const typewriterAnimation = () => {
   const element = document.querySelector('.main-secondary h4');
   const text = element.innerText;
@@ -138,54 +100,9 @@ const typewriterAnimation = () => {
     }
   }, 100);
 };
-
 typewriterAnimation();
 
-
-//hover animation
-
-const hoverAnimation = () => {
-  const element = document.querySelector('.header__logo');
-  element.addEventListener('mouseenter', () => {
-    element.classList.add('hovered');
-  });
-
-  element.addEventListener('mouseleave', () => {
-    element.classList.remove('hovered');
-  });
-};
-
-hoverAnimation();
-
-image slider animation
-
-const imageSlider = () => {
-  const images = [
-    'images\p-1.jpg',
-    'images\p-2.jpg',
-    'image3.jpg',
-  ];
-  let currentImageIndex = 0;
-
-  const imageElement = document.querySelector('.slider-image');
-
-  const changeImage = () => {
-    imageElement.src = images[currentImageIndex];
-    currentImageIndex = (currentImageIndex + 1) % images.length;
-  };
-
-  setInterval(changeImage, 2000);
-};
-
-imageSlider();
-
-
-
-
-
-
-
-// Carousel auto-scrolling
+// №7   Carousel auto-scrolling
 function carouselScroll() {
     const carouselInner = document.querySelector('.carousel-inner');
     const carouselItems = document.querySelectorAll('.carousel-item');
@@ -198,23 +115,79 @@ function carouselScroll() {
       carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
     }, 3000);
   }
-  
-  // Call the carouselScroll function after the document is loaded
   document.addEventListener('DOMContentLoaded', carouselScroll);
   
 
+  // #8   slide in from left 
 
+  const imgElement2 = document.querySelector('.middle img');
 
-        // JavaScript code for smooth scrolling navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+  function slideInFromRight() {
+    let position = 100;
+    imgElement2.style.transform = `translateX(${position}%)`;
+  
+    const interval = setInterval(() => {
+      if (position <= 0) {
+        clearInterval(interval);
+      }
+      position -= 10;
+      imgElement2.style.transform = `translateX(${position}%)`;
+    }, 100);
+  }
+  
+  imgElement2.addEventListener('mouseenter', slideInFromRight);
+
+  
+// #9 rotate the butt
+
+  const imgElement = document.querySelector('.tour img');
+
+  function rotateForever() {
+    let rotation = 0;
+  
+    function animate() {
+      rotation = (rotation + 1) % 360;
+  
+      imgElement.style.transform = `rotate(${rotation}deg)`;
+  
+      requestAnimationFrame(animate);
+    }
+  
+    requestAnimationFrame(animate);
+  }
+  
+  rotateForever();
+  
+
+  // #10 carousel again, but with another animation
+  const carouselImages = document.querySelectorAll('.carousel-item img');
+
+  function zoomInAnimation() {
+    carouselImages.forEach(image => {
+      image.addEventListener('mouseenter', () => {
+        image.style.transform = 'scale(1.2)';
+      });
+  
+      image.addEventListener('mouseleave', () => {
+        image.style.transform = 'scale(1)';
+      });
+    });
+  }
+  
+  zoomInAnimation();
+  
+  
+// #11 shake the word
+  const tourBackText = document.querySelector('.tour-back');
+
+function shakeAnimation() {
+  tourBackText.addEventListener('mouseenter', () => {
+    tourBackText.style.transform = 'rotate(-5deg)';
+  });
+
+  tourBackText.addEventListener('mouseleave', () => {
+    tourBackText.style.transform = 'rotate(5deg)';
+  });
+}
+
+shakeAnimation();
