@@ -12,6 +12,7 @@ body {
     padding: 0;
     background-color: #efe7af;
     width: 100%;
+
 }
 
 
@@ -86,7 +87,6 @@ color: #efe7af;
     text-align: center;
     position: relative;
     top: -130px;
-
 }
 
 .main-info{
@@ -109,24 +109,23 @@ color: #efe7af;
     text-transform: uppercase;
     font-size: 13px;
     font-weight: bold;
-    
 }
 
 .main-secondary{
-    text-align: center;
     position: relative;
     top: -100px;
-    right: 100px;
+    margin-left: 150px;
 }
 .main-secondary h2{
     font-style: italic;
     font-size: 100px;
-
+    position: relative;
 }
 
 .main-secondary h3{
     font-size: 70px;
     position: relative;
+
     
 }
 
@@ -152,7 +151,7 @@ color: #efe7af;
 
 .main-third h3{
       position: relative;
-
+      margin-left: 150px;
       top: -135px;
       font-size: 24px;
 }
@@ -173,12 +172,21 @@ color: #efe7af;
 
 .middle {
     color: #4e463f;
-    position: relative; /* Changed from absolute to relative */
-    background: #efe7af;
+    position: relative; 
     z-index: -1;
-    margin: 0; /* Added to remove default margin */
-    padding: 0; /* Added to remove default padding */
+    margin: 0;
+    padding: 0;
     
+}
+
+.middle img{
+    float: right;
+    border-radius: 200px 200px 0 0;
+    height: 500px;
+    width: auto;
+    position: relative;
+    bottom: 90px;
+    right: 130px;
 }
   
 .middle h2{
@@ -193,12 +201,13 @@ color: #efe7af;
 .middle h3{
     font-size: 40px;
     position: relative;
-    top: -300px;
+    top: -280px;
     font-weight: normal;
 }
 .middle div{
     position: relative;
-    top: 70px;
+    top: 170px;
+    margin-left: 150px;
 }
 
 .middle h4{
@@ -214,7 +223,7 @@ color: #efe7af;
    height: auto;
    position: relative;
    left: 150px;
-   top: -250px;
+   top: -150px;
    line-height: 25px;
    font-size: 15px;
 }
@@ -223,7 +232,7 @@ color: #efe7af;
     color: #4e463f;
     font-weight: bold;
     position: relative;
-    top:-240px;
+    top:-150px;
     left: 150px;
     cursor: pointer;
 }
@@ -234,11 +243,13 @@ color: #efe7af;
     padding: 0;
     height: 100%;
     width: 100%;
+    clear: both;
   }
   .calendar-info{
     position: relative;
     right: 250px;
     float:right;
+    bottom: 40px;
   }
 
   .calendar-info h2{
@@ -301,7 +312,8 @@ color: #efe7af;
 
 .tour-info{
     position:relative;
-    top: 140px;
+    top: 110px;
+    margin-left: 150px;
    
 }
 
@@ -310,6 +322,7 @@ color: #efe7af;
     font-weight: lighter;
     font-style: italic;
     position: relative;
+    
 }
 
 .tour-info h3{
@@ -352,7 +365,7 @@ color: #efe7af;
     color: #5d534a;   
     position:absolute;
     position: relative;
-    top: -540px;
+    top: -650px;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
@@ -371,6 +384,7 @@ color: #efe7af;
     top: -150px;
     font-style: italic;
     font-size: 30px;
+    text-align: center;
  }
 
  .carousel {
@@ -387,59 +401,91 @@ color: #efe7af;
     height: 100%;
     display: flex;
     transition: transform 0.5s ease;
+
   }
   
   .carousel-item {
     flex: 0 0 100%;
     position: relative;
   }
+
+  .carousel-item img{
+    width: 100%;
+  }
   
   .carousel-caption {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 550px;
+    left: 100px;
     color: #efe7af;
+   text-transform: uppercase;
+   font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   }
   
   .carousel-caption h3 {
-    font-size: 18px;
+    font-size: 27px;
     margin: 0;
+  }
+
+  .carousel-caption hr{
+   color: #efe7af;
+   border-top: 4px solid #efe7af;
+   width: 30px;
+
   }
   
   .carousel-caption p {
-    font-size: 14px;
+    font-size: 12px;
     margin: 0;
   }
   
-
-
-
   .footer{
     background-color: #4e463f;
     color: #efe7af;
     position: relative;
-    top: auto;
-    height: 100%;
+    bottom: 200px;
+    height: 300px;
     width: 100%;
+  }
 
+  .footer-logo{
+    font-size: 90px;
+    font-weight: bold;
+    position: relative;
+    margin-left: 150px;
+    top: 100px;
+    
   }
 
   .footer h2{
+    position: relative;
    font-weight: normal;
    font-style: italic;
+   top: -30px;
+   right: 300px;
   }
 
-  .footer h3{
-   font-weight: normal;
+  .footer h2 a{
+    color: #efe7af;
   }
 
-  .fotter p{
+
+  .footer p{
+    position: relative;
     text-transform: uppercase;
+    font-size: 10px;
+   top: -30px;
+   right: 300px;
+  }
+
+  .footer-info{
+    float: right;
   }
 
 
 
-  .copywrite{
+  .copyright{
     color: #4e463f;
+    margin-left: 150px;
   }
