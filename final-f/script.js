@@ -1,4 +1,4 @@
- // # 1  Scrolling animation
+ //   Scrolling animation
  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -12,7 +12,7 @@
 });
 });
 
-//  #2   fade in
+//   fade in
 const element = document.querySelector('.main');
 element.style.opacity = 0;
 
@@ -29,7 +29,7 @@ const fadeIn = () => {
 };
 fadeIn();
 
-// #3  slide in 
+//  slide in 
 const slideIn = () => {
   const element = document.querySelector('.main-info');
   const startingPosition = -1000;
@@ -47,7 +47,7 @@ const slideIn = () => {
 
 slideIn();
 
-// #4   scale animation
+//  scale animation
 const scaleAnimation = () => {
   const element = document.querySelector('.main-second');
   let scale = 0;
@@ -66,7 +66,7 @@ scaleAnimation();
 
 
 
-//   #5   bounsing animation
+//   bounsing animation
 const bounceAnimation = () => {
   const element = document.querySelector('.main-info');
   let position = 0;
@@ -84,7 +84,7 @@ const bounceAnimation = () => {
 bounceAnimation();
 
 
-//  #6   type writer animation
+// type writer animation
 const typewriterAnimation = () => {
   const element = document.querySelector('.main-secondary h4');
   const text = element.innerText;
@@ -102,7 +102,7 @@ const typewriterAnimation = () => {
 };
 typewriterAnimation();
 
-// №7   Carousel auto-scrolling
+//  Carousel auto-scrolling
 function carouselScroll() {
     const carouselInner = document.querySelector('.carousel-inner');
     const carouselItems = document.querySelectorAll('.carousel-item');
@@ -118,7 +118,7 @@ function carouselScroll() {
   document.addEventListener('DOMContentLoaded', carouselScroll);
   
 
-  // #8   slide in from left 
+  //  slide in from left 
 
   const imgElement2 = document.querySelector('.middle img');
 
@@ -138,7 +138,7 @@ function carouselScroll() {
   imgElement2.addEventListener('mouseenter', slideInFromRight);
 
   
-// #9 rotate the butt
+//  rotate the butt
 
   const imgElement = document.querySelector('.tour img');
 
@@ -159,7 +159,7 @@ function carouselScroll() {
   rotateForever();
   
 
-  // #10 carousel again, but with another animation
+  //  carousel again, but with another animation
   const carouselImages = document.querySelectorAll('.carousel-item img');
 
   function zoomInAnimation() {
@@ -177,7 +177,7 @@ function carouselScroll() {
   zoomInAnimation();
   
   
-// #11 shake the word
+// shake the word
   const tourBackText = document.querySelector('.tour-back');
 
 function shakeAnimation() {
@@ -191,3 +191,92 @@ function shakeAnimation() {
 }
 
 shakeAnimation();
+
+// sliding 2 img parallel
+const image2 = document.querySelector('#events img');
+image2.style.transform = 'translateX(100%)';
+
+const slideIn1 = (element) => {
+  let position = -100;
+  const interval = setInterval(() => {
+    if (position < 0) {
+      position += 1;
+      element.style.transform = `translateX(${position}%)`;
+    } else {
+      clearInterval(interval);
+    }
+  }, 10); 
+};
+slideIn1(image2);
+
+
+//  fade in 2 img
+const image4 = document.querySelector('#events img');
+image4.style.opacity = '0';
+
+const fadeIn1 = (element) => {
+  let opacity = 0;
+  const interval = setInterval(() => {
+    if (opacity < 1) {
+      opacity += 0.01; 
+      element.style.opacity = opacity;
+    } else {
+      clearInterval(interval);
+    }
+  }, 10);
+};
+fadeIn1(image4);
+
+
+
+
+// changing color on hover
+const write = document.querySelectorAll('.footer-info a');
+
+function changeColorOnHover() {
+  write.forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+      icon.style.color = 'red';
+    });
+
+    icon.addEventListener('mouseleave', () => {
+      icon.style.color = '#eae7af';
+    });
+  });
+}
+
+changeColorOnHover();
+
+
+//  fade in of the footer logo
+const footerLogo = document.querySelector('.footer-logo');
+footerLogo.style.opacity = '0';
+
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
+  const footerPosition = document.querySelector('.footer').offsetTop;
+  const windowHeight = window.innerHeight;
+
+  if (scrollPosition + windowHeight >= footerPosition) {
+    footerLogo.style.transition = 'opacity 1s';
+    footerLogo.style.opacity = '1';
+  }
+});
+
+
+// scrolling rotating other img 
+const learnImage = document.querySelector('.other');
+learnImage.style.transform = 'rotate(0deg)';
+
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
+  const learnPosition = document.querySelector('.other').offsetTop;
+  const windowHeight = window.innerHeight;
+
+  if (scrollPosition + windowHeight >= learnPosition) {
+    const rotation = (scrollPosition + windowHeight - learnPosition) / windowHeight * 360;
+    learnImage.style.transform = `rotate(${rotation}deg)`;
+  }
+});
+
+
